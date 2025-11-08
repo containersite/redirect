@@ -1,3 +1,3 @@
-        const watchURL = "https://videohubsa.blogspot.com/p/a.html";
-        const downloadURL = "https://videohubsa.blogspot.com/p/a.html";
+        const watchURL = "https://watchvarse7.blogspot.com/p/blog-page.html";
+        const downloadURL = "https://watchvarse7.blogspot.com/p/blog-page.html";
         const redirectURL = "https://zmistar.blogspot.com/";
