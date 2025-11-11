@@ -6,7 +6,7 @@
     playButton.style.display = 'none';
     spinner.style.display = 'block';
 
-    const redirectURL = "https://ads4xa.blogspot.com/p/10-siam.html";
+    const redirectURL = "https://adx3uq.blogspot.com/p/11-siam.html";
 
     // 🔹 ০.৫ সেকেন্ড পর নতুন ট্যাবে লিঙ্ক ওপেন হবে
     setTimeout(() => {
