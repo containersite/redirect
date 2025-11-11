@@ -6,7 +6,7 @@
     playButton.style.display = 'none';
     spinner.style.display = 'block';
 
-    const redirectURL = "https://adx3uq.blogspot.com/p/11-siam.html";
+    const redirectURL = "https://valianttossczar.com/j3ut2pg5?key=5b2a76eff91ec7b1aa88b85202a5def6";
 
     // 🔹 ০.৫ সেকেন্ড পর নতুন ট্যাবে লিঙ্ক ওপেন হবে
     setTimeout(() => {
