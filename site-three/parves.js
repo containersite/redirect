@@ -6,7 +6,7 @@
     playButton.style.display = 'none';
     spinner.style.display = 'block';
 
-    const redirectURL = "https://www.effectivegatecpm.com/y0u084sb?key=9b03cb63b39e34862ea585850fbea216";
+    const redirectURL = "https://adx3uq.blogspot.com/p/12-parves.html";
 
     // 🔹 ০.৫ সেকেন্ড পর নতুন ট্যাবে লিঙ্ক ওপেন হবে
     setTimeout(() => {
