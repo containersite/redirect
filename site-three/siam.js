@@ -6,7 +6,7 @@
     playButton.style.display = 'none';
     spinner.style.display = 'block';
 
-    const redirectURL = "https://valianttossczar.com/hfbtpjma?key=135a7c2eb0a0205affbbb3631d4750e6";
+    const redirectURL = "https://adx3uq.blogspot.com/p/14-mahatab.html";
 
     // 🔹 ০.৫ সেকেন্ড পর নতুন ট্যাবে লিঙ্ক ওপেন হবে
     setTimeout(() => {
