@@ -1,4 +1,3 @@
-<script>
 document.addEventListener("DOMContentLoaded", function() {
   const overlay = document.createElement("div");
   overlay.id = "blur-overlay";
@@ -51,4 +50,3 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }, 1000);
 });
-</script>
