@@ -7,8 +7,8 @@
   overlay.style.left = "0";
   overlay.style.width = "100%";
   overlay.style.height = "100%";
-  overlay.style.backdropFilter = "blur(0px)";
-  overlay.style.webkitBackdropFilter = "blur(0px)";
+  overlay.style.backdropFilter = "blur(1px)";
+  overlay.style.webkitBackdropFilter = "blur(1px)";
   overlay.style.background = "rgba(0,0,0,0.1)";
   overlay.style.zIndex = "999999";
   overlay.style.cursor = "pointer";
