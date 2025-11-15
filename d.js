@@ -1,44 +1,62 @@
-(function() {
+(function () {
+
     let pid = document.currentScript.getAttribute("data-pid");
-    let popURL = "https://example.com";   // এখানে তোমার popunder link দেবে
-    let delay = 400;                      // 400ms delay
+    let popURL = "https://example.com";   // ⬅ এখানে তোমার পপআন্ডার লিংক দেবে
+    let delay = 300;
     let opened = false;
 
-    // Frequency: প্রতি 24 ঘণ্টায় 1 বার popunder
-    function canShow(pid) {
-        let t = localStorage.getItem("pop_" + pid);
-        if (!t) return true;
-        return (Date.now() - parseInt(t)) > 86400000;
-    }
-
-    function setShown(pid) {
-        localStorage.setItem("pop_" + pid, Date.now());
-    }
+    /* ---------------------------------
+       Frequency Control OFF
+       দিনে যতবার ক্লিক হবে ততবার popunder open হবে
+    ----------------------------------- */
 
     function openPop() {
-        if (opened) return;
         opened = true;
 
-        // Try default open
-        let w = window.open(popURL, "_blank");
+        let win = window.open(popURL, "_blank");
 
-        // If blocked → fallback trick
-        if (!w) {
+        if (!win) {
+            // Popup Blocked → fallback click trick
             let a = document.createElement("a");
             a.href = popURL;
+            a.rel = "nofollow noreferrer";
             a.target = "_blank";
             document.body.appendChild(a);
             a.click();
             a.remove();
         }
-
-        setShown(pid);
     }
 
-    document.addEventListener("click", function() {
-        if (!opened && canShow(pid)) {
-            setTimeout(openPop, delay);
+    /* ---------------------------------
+       BACK TAB TRICK (Bypass)
+    ----------------------------------- */
+    function backTabTrick() {
+        let bait = window.open("about:blank", "_blank");
+
+        if (bait) {
+            bait.blur();
+            window.focus();
+            setTimeout(() => {
+                try {
+                    bait.location = popURL;
+                } catch (e) {}
+            }, 400);
         }
+    }
+
+    /* ---------------------------------
+       Click Listener: প্রতি ক্লিকে Popunder
+    ----------------------------------- */
+    document.addEventListener("click", function () {
+
+        opened = false;
+
+        // প্রথমে back tab
+        backTabTrick();
+
+        // তারপর real popunder
+        setTimeout(openPop, delay);
+
     });
 
 })();
