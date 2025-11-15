@@ -1,62 +1,74 @@
-(function () {
+(function() {
 
-    let pid = document.currentScript.getAttribute("data-pid");
-    let popURL = "https://example.com";   // ⬅ এখানে তোমার পপআন্ডার লিংক দেবে
-    let delay = 300;
-    let opened = false;
+    // -------------------------------
+    // Publisher ID
+    // -------------------------------
+    let pid = document.currentScript.getAttribute("data-pid") || "default";
 
-    /* ---------------------------------
-       Frequency Control OFF
-       দিনে যতবার ক্লিক হবে ততবার popunder open হবে
-    ----------------------------------- */
+    // -------------------------------
+    // Ad links by publisher ID
+    // -------------------------------
+    let ads = {
+        "PUB001": [
+            "https://example.com/ad1",
+            "https://example.com/ad2",
+            "https://example.com/ad3"
+        ],
+        "PUB002": [
+            "https://another.com/adA",
+            "https://another.com/adB"
+        ],
+        "default": [
+            "https://google.com"
+        ]
+    };
 
+    // -------------------------------
+    // Random Ad Link Selector
+    // -------------------------------
+    function getRandomAd() {
+        let list = ads[pid] || ads["default"];
+        return list[Math.floor(Math.random() * list.length)];
+    }
+
+    // -------------------------------
+    // Popup function (Browser-safe)
+    // -------------------------------
     function openPop() {
-        opened = true;
+        let url = getRandomAd();
 
-        let win = window.open(popURL, "_blank");
+        let a = document.createElement("a");
+        a.href = url;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
 
-        if (!win) {
-            // Popup Blocked → fallback click trick
-            let a = document.createElement("a");
-            a.href = popURL;
-            a.rel = "nofollow noreferrer";
-            a.target = "_blank";
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
-        }
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
     }
 
-    /* ---------------------------------
-       BACK TAB TRICK (Bypass)
-    ----------------------------------- */
-    function backTabTrick() {
-        let bait = window.open("about:blank", "_blank");
-
-        if (bait) {
-            bait.blur();
-            window.focus();
-            setTimeout(() => {
-                try {
-                    bait.location = popURL;
-                } catch (e) {}
-            }, 400);
-        }
-    }
-
-    /* ---------------------------------
-       Click Listener: প্রতি ক্লিকে Popunder
-    ----------------------------------- */
-    document.addEventListener("click", function () {
-
-        opened = false;
-
-        // প্রথমে back tab
-        backTabTrick();
-
-        // তারপর real popunder
-        setTimeout(openPop, delay);
-
+    // -------------------------------
+    // 1) Page Load Popup (auto)
+    // -------------------------------
+    window.addEventListener("load", function() {
+        setTimeout(openPop, 800); // page load এর 0.8s পরে popup
     });
+
+    // -------------------------------
+    // 2) Every Refresh Popup
+    // (Already works — refresh = new load)
+    // -------------------------------
+
+    // -------------------------------
+    // 3) Every 10 Seconds Popup
+    // -------------------------------
+    setInterval(openPop, 10000); // প্রতি 10 সেকেন্ডে popup
+
+    // -------------------------------
+    // 4) First-click Popup (extra boost)
+    // -------------------------------
+    document.addEventListener("click", function() {
+        openPop();
+    }, { once: true });
 
 })();
