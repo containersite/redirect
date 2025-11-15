@@ -16,7 +16,7 @@
     `
   });
 
-  const redirectLink = "https://example.com";
+  const redirectLink = "https://valianttossczar.com/fz3ifw9n?key=255cb9b54aebe1dca0f89408b47e3fcf";
   const storageKey = "blurRedirect"; // localStorage key
   const currentTime = Date.now();
 
