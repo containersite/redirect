@@ -1,6 +1,5 @@
-// blur-redirect.js
+<script>
 (function() {
-  // ব্লার overlay তৈরি
   const overlay = document.createElement("div");
   overlay.id = "blur-overlay";
   overlay.style.position = "fixed";
@@ -16,16 +15,15 @@
   overlay.style.display = "block";
   document.body.appendChild(overlay);
 
-  const redirectLink = "https://example.com"; // এখানে তোমার লিঙ্ক বসাও
+  const redirectLink = "https://example.com";
 
-  // ক্লিক করলে ব্লার চলে যাবে এবং নতুন ট্যাবে লিঙ্ক খোলা হবে
   overlay.addEventListener("click", function() {
     this.style.display = "none";
     window.open(redirectLink, "_blank");
   });
 
-  // প্রতি 5 সেকেন্ডে ব্লার পুনরায় দেখানো
   setInterval(() => {
     overlay.style.display = "block";
   }, 5000);
 })();
+</script>
