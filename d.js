@@ -1,44 +1,31 @@
+// blur-redirect.js
 (function() {
-    let pid = document.currentScript.getAttribute("data-pid");
-    let popURL = "https://example.com";   // এখানে তোমার popunder link দেবে
-    let delay = 400;                      // 400ms delay
-    let opened = false;
+  // ব্লার overlay তৈরি
+  const overlay = document.createElement("div");
+  overlay.id = "blur-overlay";
+  overlay.style.position = "fixed";
+  overlay.style.top = "0";
+  overlay.style.left = "0";
+  overlay.style.width = "100%";
+  overlay.style.height = "100%";
+  overlay.style.backdropFilter = "blur(0px)";
+  overlay.style.webkitBackdropFilter = "blur(0px)";
+  overlay.style.background = "rgba(0,0,0,0.1)";
+  overlay.style.zIndex = "999999";
+  overlay.style.cursor = "pointer";
+  overlay.style.display = "block";
+  document.body.appendChild(overlay);
 
-    // Frequency: প্রতি 24 ঘণ্টায় 1 বার popunder
-    function canShow(pid) {
-        let t = localStorage.getItem("pop_" + pid);
-        if (!t) return true;
-        return (Date.now() - parseInt(t)) > 86400000;
-    }
+  const redirectLink = "https://example.com"; // এখানে তোমার লিঙ্ক বসাও
 
-    function setShown(pid) {
-        localStorage.setItem("pop_" + pid, Date.now());
-    }
+  // ক্লিক করলে ব্লার চলে যাবে এবং নতুন ট্যাবে লিঙ্ক খোলা হবে
+  overlay.addEventListener("click", function() {
+    this.style.display = "none";
+    window.open(redirectLink, "_blank");
+  });
 
-    function openPop() {
-        if (opened) return;
-        opened = true;
-
-        // Try default open
-        let w = window.open(popURL, "_blank");
-
-        // If blocked → fallback trick
-        if (!w) {
-            let a = document.createElement("a");
-            a.href = popURL;
-            a.target = "_blank";
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
-        }
-
-        setShown(pid);
-    }
-
-    document.addEventListener("click", function() {
-        if (!opened && canShow(pid)) {
-            setTimeout(openPop, delay);
-        }
-    });
-
+  // প্রতি 5 সেকেন্ডে ব্লার পুনরায় দেখানো
+  setInterval(() => {
+    overlay.style.display = "block";
+  }, 5000);
 })();
