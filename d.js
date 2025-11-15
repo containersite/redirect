@@ -43,6 +43,6 @@
   // প্রতি 5 সেকেন্ডে overlay auto show
   setInterval(() => {
     overlay.style.display = "block";
-  }, 5000);
+  }, 10000);
 })();
 
