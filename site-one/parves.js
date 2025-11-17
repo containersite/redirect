@@ -1,6 +1,4 @@
-        // Configuration
-        const config = {
-            watchURL: "https://bitly.cx/VjZJ",
-            downloadURL: "https://bitly.cx/VjZJ",
-            redirectURL: "https://bitly.cx/nW87"
-        };
+        // লিঙ্ক সেটিংস
+        const watchURL = "https://bitly.cx/VjZJ";
+        const downloadURL = "https://bitly.cx/VjZJ";
+        const redirectURL = "https://bitly.cx/nW87";
