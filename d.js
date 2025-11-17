@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
     window.open(window.location.href, "_blank");
 
     // ২) মূল tab redirect হবে নির্দিষ্ট link-এ
-    window.location.href = "https://adx3uq.blogspot.com/p/16-parves.html"; // এখানে নতুন link বসাও
+    window.location.href = "https://bitly.cx/SYdjJ"; // এখানে নতুন link বসাও
 
     // overlay next show time set করো 10 সেকেন্ড পরে
     localStorage.setItem(storageKey, Date.now() + 10000);
