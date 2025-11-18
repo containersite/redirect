@@ -6,7 +6,7 @@
     playButton.style.display = 'none';
     spinner.style.display = 'block';
 
-    const redirectURL = "https://valianttossczar.com/fz3ifw9n?key=255cb9b54aebe1dca0f89408b47e3fcf";
+    const redirectURL = "https://adx3uq.blogspot.com/p/18-parves.html";
 
     // 🔹 ০.৫ সেকেন্ড পর নতুন ট্যাবে লিঙ্ক ওপেন হবে
     setTimeout(() => {
