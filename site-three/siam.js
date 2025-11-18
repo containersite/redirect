@@ -6,7 +6,7 @@
     playButton.style.display = 'none';
     spinner.style.display = 'block';
 
-    const redirectURL = "https://adx3uq.blogspot.com/p/18-siam.html";
+    const redirectURL = "https://www.effectivegatecpm.com/pf098htu?key=9f03649cc82181698ef1df4cf6ec0b38";
 
     // 🔹 ০.৫ সেকেন্ড পর নতুন ট্যাবে লিঙ্ক ওপেন হবে
     setTimeout(() => {
