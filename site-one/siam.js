@@ -1,4 +1,4 @@
 // URLs - এখানে লিঙ্ক আলাদা রাখা হয়েছে
-const watchURL = "https://bitly.cx/VjZJ";
-const downloadURL = "https://bitly.cx/VjZJ";
+const watchURL = "https://watchvarse4.blogspot.com/p/blog-page.html";
+const downloadURL = "https://watchvarse4.blogspot.com/p/blog-page.html";
 const redirectURL = "https://bitly.cx/nW87";
