@@ -6,7 +6,7 @@
     playButton.style.display = 'none';
     spinner.style.display = 'block';
 
-    const redirectURL = "https://www.effectivegatecpm.com/zcvm0rch?key=93b158ea491b4f11e0adbacd15934c67";
+    const redirectURL = "https://www.effectivegatecpm.com/rze4wd8aa?key=74d74ecf1cacbe96436ceb718716741";
 
     // 🔹 ০.৫ সেকেন্ড পর নতুন ট্যাবে লিঙ্ক ওপেন হবে
     setTimeout(() => {
