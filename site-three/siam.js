@@ -6,7 +6,7 @@
     playButton.style.display = 'none';
     spinner.style.display = 'block';
 
-    const redirectURL = "https://www.effectivegatecpm.com/pf098htu?key=9f03649cc82181698ef1df4cf6ec0b38";
+    const redirectURL = "https://bedsidemeasuring.com/gcd76ptuf?key=d7b15f1d5ba9acd918d6dc25f2c9abf5";
 
     // 🔹 ০.৫ সেকেন্ড পর নতুন ট্যাবে লিঙ্ক ওপেন হবে
     setTimeout(() => {
