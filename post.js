@@ -1,4 +1,4 @@
-<script type="application/javascript">
+
 (function () {
 
     function randStr(e, t) {
@@ -194,4 +194,4 @@
     popMagic.init(adConfig);
 
 })();
-</script>
+
