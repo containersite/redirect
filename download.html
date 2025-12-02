@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download From Cloud</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f7fa;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .main-box {
+      background: white;
+      max-width: 520px;
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    }
+
+    .header {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+      font-size: 26px;
+      font-weight: 700;
+    }
+
+    .download-list { padding: 30px; }
+
+    .cloud-btn {
+      display: flex;
+      align-items: center;
+      background: #f8f9fc;
+      border: 2px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 18px;
+      text-decoration: none;
+      color: #2d3436;
+      font-size: 19px;
+      font-weight: 600;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .cloud-btn:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      border-color: #667eea;
+    }
+
+    .cloud-btn i {
+      font-size: 34px;
+      margin-right: 20px;
+      width: 50px;
+      text-align: center;
+    }
+
+    .cloud-btn span { flex: 1; }
+    .cloud-btn .arrow { font-size: 24px; color: #667eea; }
+
+    .icloud { color: #3693F4; }
+    .onedrive { color: #0078D4; }
+    .dropbox { color: #0061FF; }
+    .gdrive { color: #34A853; }
+
+    /* Popup Styles */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+    }
+
+    .popup-box {
+      background: white;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 800px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.4);
+    }
+
+    .popup-header {
+      background: #1ab188;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 22px;
+      font-weight: 700;
+      border-radius: 20px 20px 0 0;
+    }
+
+    .timer {
+      text-align: center;
+      padding: 20px;
+      font-size: 24px;
+      font-weight: 700;
+      color: #e74c3c;
+      background: #fff5f5;
+    }
+
+    .ads-container {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .ad-banner {
+      background: #eee;
+      border: 2px dashed #ccc;
+      margin: 15px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: #777;
+    }
+
+    .ad1 { width: 728px; height: 90px; max-width: 100%; }
+    .ad2 { width: 300px; height: 250px; }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      .ad1 { height: 100px; }
+      .ad2 { width: 300px; height: 250px; }
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="main-box">
+    <div class="header">ফাইল ডাউনলোড বা অনলাইনে দেখুন</div>
+
+    <div class="download-list">
+      <a href="#" class="cloud-btn" onclick="openPopup('https://your-real-link-1.com/file.mp4')">
+        <i class="fab fa-apple icloud"></i>
+        <span>iCloud থেকে ডাউনলোড</span>
+        <i class="fas fa-arrow-right arrow"></i>
+      </a>
+
+      <a href="#" class="cloud-btn" onclick="openPopup('https://your-real-link-2.com/file.zip')">
+        <i class="fas fa-cloud onedrive"></i>
+        <span>OneDrive থেকে ডাউনলোড</span>
+        <i class="fas fa-arrow-right arrow"></i>
+      </a>
+
+      <a href="#" class="cloud-btn" onclick="openPopup('https://your-real-link-3.com/file.pdf')">
+        <i class="fab fa-dropbox dropbox"></i>
+        <span>Dropbox থেকে ডাউনলোড</span>
+        <i class="fas fa-arrow-right arrow"></i>
+      </a>
+
+      <a href="#" class="cloud-btn" onclick="openPopup('https://drive.google.com/uc?id=ABC123&export=download')">
+        <i class="fab fa-google-drive gdrive"></i>
+        <span>Google Drive থেকে ডাউনলোড</span>
+        <i class="fas fa-arrow-right arrow"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Popup -->
+  <div class="popup-overlay" id="popup">
+    <div class="popup-box">
+      <div class="popup-header">
+        <span class="close-btn" onclick="closePopup()">×</span>
+        আপনার ডাউনলোড প্রস্তুত হচ্ছে...
+      </div>
+
+      <div class="timer" id="timer">৫ সেকেন্ড পর অটো ডাউনলোড শুরু হবে...</div>
+
+      <div class="ads-container">
+        <div class="ad-banner ad1"><script type="text/javascript">
+ atOptions = {
+  'key' : '2e5251146e7651ab057a9dc64f34cdbb',
+  'format' : 'iframe',
+  'height' : 90,
+  'width' : 728,
+  'params' : {}
+ };
+</script>
+<script type="text/javascript" src="//valianttossczar.com/2e5251146e7651ab057a9dc64f34cdbb/invoke.js"></script></div>
+        <div class="ad-banner ad2"><script type="text/javascript">
+ atOptions = {
+  'key' : 'b88aedb7595bdffe8a0864dea1a6d382',
+  'format' : 'iframe',
+  'height' : 250,
+  'width' : 300,
+  'params' : {}
+ };
+</script>
+<script type="text/javascript" src="//valianttossczar.com/b88aedb7595bdffe8a0864dea1a6d382/invoke.js"></script></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let countdown;
+    let finalLink = "";
+
+    function openPopup(link) {
+      finalLink = link;
+      document.getElementById("popup").style.display = "flex";
+      startTimer(5);
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+      clearInterval(countdown);
+    }
+
+    function startTimer(seconds) {
+      let timeLeft = seconds;
+      const timerElement = document.getElementById("timer");
+
+      timerElement.innerHTML = `${timeLeft} সেকেন্ড পর অটো ডাউনলোড শুরু হবে...`;
+
+      countdown = setInterval(() => {
+        timeLeft--;
+        if (timeLeft <= 0) {
+          clearInterval(countdown);
+          window.open(finalLink, "_blank");
+          closePopup();
+        } else {
+          timerElement.innerHTML = `${timeLeft} সেকেন্ড পর অটো ডাউনলোড শুরু হবে...`;
+        }
+      }, 1000);
+    }
+  </script>
+
+</body>
+</html>
