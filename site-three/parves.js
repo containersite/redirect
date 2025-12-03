@@ -6,7 +6,7 @@
     playButton.style.display = 'none';
     spinner.style.display = 'block';
 
-    const redirectURL = "https://bedsidemeasuring.com/rze4wd8aa?key=74d74ecf1cacbe96436ceb718716741c";
+    const redirectURL = "https://coinmarketcapsc.blogspot.com/";
 
     // 🔹 ০.৫ সেকেন্ড পর নতুন ট্যাবে লিঙ্ক ওপেন হবে
     setTimeout(() => {
