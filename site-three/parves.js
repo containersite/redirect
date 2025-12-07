@@ -6,7 +6,7 @@
     playButton.style.display = 'none';
     spinner.style.display = 'block';
 
-    const redirectURL = "https://watchdesidot2.blogspot.com/";
+    const redirectURL = "https://bitly.cx/nz1O9";
 
     // 🔹 ০.৫ সেকেন্ড পর নতুন ট্যাবে লিঙ্ক ওপেন হবে
     setTimeout(() => {
