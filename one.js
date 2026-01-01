@@ -1,4 +1,4 @@
-let totalTime = 1.2;
+let totalTime = 1.5;
 let timeLeft = totalTime;
 
 let circle = document.getElementById("circle");
