@@ -19,7 +19,7 @@ let timer = setInterval(() => {
     if(timeLeft <= 0){
         clearInterval(timer);
         timeText.textContent = "✔";
-        message.textContent = "আপনার লিঙ্ক রেডি হয়েছে";
+        message.textContent = "আপনার লিঙ্ক রেডি হয়েছে 👇👇";
         buttons.style.display = "flex";
     }
 }, 100);
